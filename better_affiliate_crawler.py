@@ -9,6 +9,7 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from typing import List, Optional, Set
 from urllib.parse import urljoin, urlparse
+import argparse
 
 import pandas as pd
 import requests
@@ -514,10 +515,18 @@ class DataValidator:
 
 
 async def main():
+    parser = argparse.ArgumentParser(description="Advanced Affiliate Program Crawler")
+    parser.add_argument('--clean', action='store_true', help="Start a clean run, deleting previous progress and results.")
+    args = parser.parse_args()
+
     try:
         df = pd.read_csv('tools.csv')
         crawler = BetterAffiliateCrawler()
-        crawler.run_cleanup() # Clean files before running
+
+        if args.clean:
+            logging.info("Starting a clean run. Deleting old progress and results.")
+            crawler.run_cleanup() # Clean files only if --clean is specified
+        
         await crawler.run(df)
 
         # Add validation step
