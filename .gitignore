@@ -1,55 +1,20 @@
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-
-# Virtual environments
-venv/
-env/
-ENV/
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Project specific
-crawled_sites/
+# Log files
 *.log
-crawler_progress.json
-tool_translations_updated.csv
 
-# Screenshots and large files
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.mp4
-*.avi
+# CSV Results
+*.csv
 
-# Temporary files
-*.tmp
-*.temp 
+# JSON progress files
+*.json
+
+# Screenshots and crawled data
+crawled_sites/
+
+# VSCode settings
+.vscode/
+
+# Python cache
+__pycache__/
+.pytest_cache/
+.venv/
+venv/
